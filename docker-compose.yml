@@ -10,12 +10,12 @@ services:
       ports: 
         - "5000:8080"
       command: yarn serve
-  # api:
-  #   volumes: 
-  #     - ./api:/usr/app
-  #     - /usr/app/node_modules
-  #   build: "./api"  
-  #   container_name: "api"
-  #   ports: 
-  #     - "5000:5000"
-  #   command: npm start
+  api:
+    volumes: 
+      - ./server:/usr/app
+      - /usr/app/node_modules
+    build: "./server" 
+    container_name: "server"
+    ports:
+      - "3000:3000"
+    command: npm run start

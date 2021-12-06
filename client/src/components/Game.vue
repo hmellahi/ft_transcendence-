@@ -94,7 +94,7 @@ export default class Game extends Vue {
     // this.score.setScore((this.score.value+1/1e)%10)
     // this.score.draw(sketch);
     // this.score2.draw(sketch);
-    this.scores.map((score) => score.draw(sketch));
+    this.scores.map((score) => score.draw);
   }
 
   keypressed(sketch: P5Sketch) {
