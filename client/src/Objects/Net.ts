@@ -33,9 +33,10 @@ export default class Net {
     let x = width / 2;
     sketch.fill(255, 255, 255);
     sketch.noStroke();
-    for (let i = 0; i < height; i += ratio*2) {
-      sketch.rect(x, i, 10, ratio);
-    }
+    // for (let i = 0; i < height; i += ratio*2) {
+      // sketch.rect(x, i, 10, ratio);
+    // }
+      sketch.rect(x - 3,0 , 6, height);
     // console.log("ratio " + ratio + " " + height);
   }
 }

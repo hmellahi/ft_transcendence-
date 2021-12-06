@@ -11,6 +11,10 @@ export default class Ball {
   color: number;
   speed: number;
   velocity:number;
+  top: number = 0;
+  bottom: number = 0;
+  left: number= 0;
+  right: number= 0;
 
   // Constructor method
   constructor(
@@ -46,13 +50,24 @@ export default class Ball {
     this.y = nexPos;
   }
 
-  handleKey(sketch: P5Sketch) {
-    let { LEFT_ARROW, RIGHT_ARROW, keyCode } = sketch;
+  handleKeyPressed(sketch: P5Sketch) {
+    let { UP_ARROW, DOWN_ARROW, keyCode } = sketch;
     // console.log(keyCode== LEFT_ARROW);
-    if (keyCode === LEFT_ARROW) {
-      this.velocity = 1;
-    } else if (keyCode === RIGHT_ARROW) {
+    if (keyCode === UP_ARROW) {
       this.velocity = -1;
+    } else if (keyCode === DOWN_ARROW) {
+      this.velocity = 1;
+    }
+    // console.log(this.velocity);
+  }
+
+  handleKeyReleased(sketch: P5Sketch) {
+    let { UP_ARROW, DOWN_ARROW, keyCode } = sketch;
+    // console.log(keyCode== LEFT_ARROW);
+    if (keyCode === UP_ARROW) {
+      this.velocity = 0;
+    } else if (keyCode === DOWN_ARROW) {
+      this.velocity = 0;
     }
     // console.log(this.velocity);
   }

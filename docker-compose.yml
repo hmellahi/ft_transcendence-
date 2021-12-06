@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  game:
+      volumes: 
+        - ./client:/usr/app
+        - /usr/app/node_modules
+      build: "./client"
+      container_name: "client"
+      ports: 
+        - "5000:8080"
+      command: yarn serve
+  # api:
+  #   volumes: 
+  #     - ./api:/usr/app
+  #     - /usr/app/node_modules
+  #   build: "./api"  
+  #   container_name: "api"
+  #   ports: 
+  #     - "5000:5000"
+  #   command: npm start

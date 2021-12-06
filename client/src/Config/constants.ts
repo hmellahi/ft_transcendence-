@@ -1,5 +1,5 @@
 export const GameConstants = {
-  canvas: { width: 400, height: 400 },
+  canvas: { width: 600, height: 400 },
   /* some extra variables */
   netWidth: 4,
   backColor: 0,
@@ -18,7 +18,7 @@ export const GameConstants = {
     // x: canvas.width / 2 - netWidth / 2,
     x: 40,
     y: 200 - 60/2,
-    width: 20,
+    width: 10,
     height: 60,
     color: "#FFF",
   },

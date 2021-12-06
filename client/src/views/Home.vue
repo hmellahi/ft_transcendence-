@@ -1,9 +1,5 @@
 <template>
   <div>
-    <!-- <label>Update myDataProperty
-      <input :value="myDataProperty" @input="updateMyProperty($event)"/>
-    </label>
-    <div>{{ myDataProperty }}</div> -->
     <Game></Game>
   </div>
 </template>
@@ -18,3 +14,9 @@ import Game from "../components/Game.vue"
 export default class App extends Vue {
 }
 </script>
+
+<style>
+body {
+  background: #F4F6F4;
+}
+</style>
