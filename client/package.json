@@ -8,7 +8,9 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@types/node": "^16.11.11",
     "core-js": "^3.6.5",
+    "node": "^17.2.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-p5": "^0.8.4",

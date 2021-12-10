@@ -7,6 +7,7 @@
 <script lang="ts">
 import { GameConstants } from "../Config/constants";
 import Ball from "./../Objects/Ball";
+// import require from "http";
 import Net from "./../Objects/Net";
 import { Component, Vue } from "vue-property-decorator";
 import P5, {
@@ -60,6 +61,13 @@ export default class Game extends Vue {
     0
   );
   scores: Score[] = [this.score, this.score2];
+
+  mounted() {
+    const hitSound = new Audio(require("@/assets/sounds/mario_coin.mp3"));
+    this.sounds.push(hitSound);
+    // const hitSound = new Audio(require("@/assets/sounds/mario_coin.mp3"));
+    // const hitSound = new Audio(require("@/assets/sounds/mario_coin.mp3"));
+  }
   setup(sketch: P5Sketch) {
     sketch.createCanvas(
       GameConstants.canvas.width,
@@ -94,7 +102,8 @@ export default class Game extends Vue {
     // this.score.setScore((this.score.value+1/1e)%10)
     // this.score.draw(sketch);
     // this.score2.draw(sketch);
-    this.scores.map((score) => score.draw);
+    // this.scores.map((score) => score.draw);
+    this.scores.map((score) => score.draw(sketch));
   }
 
   keypressed(sketch: P5Sketch) {
@@ -112,16 +121,15 @@ export default class Game extends Vue {
   }
 
   async preload(sketch: P5Sketch) {
-    sketch.soundFormats("mp3");
-    // let hitSound = await sketch.loadSound(
-    // '/home/hamza/Desktop/pingpong/src/assets/sounds/Mario-coin-sound.mp3'
-    // );
+    // sketch.soundFormats("mp3");
+    // sketch.soundFormats("ogg", "mp3");
+    // sketch.loadSound("../assets/sounds/mario_coin.mp3");
     // this.sounds.push(hitSound);
     // this.sounds.push(sketch.loadSound("@/assets/sounds/scoreSound.js"));
     // this.sounds.push(sketch.loadSound("@/assets/sounds/wallHitSound.js"));
     // some sounds
-    // const hitSound = new Audio("hitSound.wav");
-    // this.sounds.push(
+    // /assets/sounds/hitSound.wav");
+    // this.sounds.push(hitSound);
     // new Audio("../assets/sounds/Clairo - Sofia-L9l8zCOwEII.mp3")
     // );
     // this.sounds[0].type = "audio/wav";
@@ -133,7 +141,7 @@ export default class Game extends Vue {
     //     "../assets/sounds/Clairo - Sofia-L9l8zCOwEII.mp3"
     //   );
     try {
-      // await music.play();
+      await music.play();
       console.log("Playing...");
     } catch (err) {
       console.log("Failed to play..." + err);
